@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="lib/device-mockups/device-mockups.min.css">
+	
+	  <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
+
 
     <!-- Theme CSS -->
     <link href="css/new-age.min.css" rel="stylesheet">
@@ -42,11 +45,209 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<script>
+
+	
+		
+$(document).ready(function(){
+    $("button[role='detailCalculator']").click(function(){
+	
+	
+		/*HOUSING*/
+		/*
+		Electricity : use (kWh/év) * EF (kg CO2e/kWh) = emissions (kg CO2e/yr)
+		Natural Gas : use (köbméter/év) * EF (kg CO2e/therms) = emissions (kg CO2e/yr)
+		Fuel Oil: use (litres/yr) * EF (kg CO2e/litre) = emissions (kg CO2e/yr)
+		LPG : use (litres/yr) * EF (kg CO2e/litre) = emissions (kg CO2e/yr)
+		Waste : use (kg/hét) * 52 * EF (kg CO2e/kg) = emissions (kg CO2e/yr)
+		Water : use (litres/day) * 365 * EF (kg CO2e/kWh) = emissions (kg CO2e/yr)
+		Read more at http://shrinkthatfootprint.com/calculate-your-carbon-footprint#5KmvJD6gcd0vA8uJ.99*/
+		
+		var EF  = 1;
+		
+		var electricity = $("#electricity").val() * EF;
+		var naturalGas  = $("#naturalGas").val() * EF;
+		var fuelOil = $("#fuelOil").val() * EF;
+		var lpg = $("#lpg").val() * EF;
+		var wast = $("#wast").val() * 52 * EF;
+		var water = $("#water").val() *365* EF;
+		
+		
+		/*TRAVEL*/
+		/*Vehicle : distance (km/év) /*EF (kg CO2e/km) = emissions (kg CO2e/yr)
+		Bus : distance (km/év) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+		Metro: distance (km/év) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+		Taxi: distance (km/év) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+		Rail: distance (km/év) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+		Flying : distance (km/év)* 1.09 * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+		Read more at http://shrinkthatfootprint.com/calculate-your-carbon-footprint#5KmvJD6gcd0vA8uJ.99*/
+		
+		var bus = $("#bus").val() * EF;
+		var metro  = $("#metro").val() * EF;
+		var taxi = $("#taxi").val() * EF;
+		var rail = $("#rail").val() * EF;
+		var flying = $("#flying").val() * 1.09 * EF;
+		
+		/*FOOD*/
+		/*Red meat: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		White meat: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Dairy: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Cereals: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Vegetables: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Fruit: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Oils: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Snacks: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Drinks: consumption (kCal/nap)*365*EF (kg CO2e/kCal) = emissions (kg CO2e/yr)
+		Read more at http://shrinkthatfootprint.com/calculate-your-carbon-footprint#5KmvJD6gcd0vA8uJ.99*/
+		
+		var redMeat = $("#redMeat").val() *365* EF;
+		var whiteMeat  = $("#whiteMeat").val() *365* EF;
+		var dairy = $("#dairy").val() *365* EF;
+		var cereals = $("#cereals").val() *365* EF;
+		var vegetables = $("#vegetables").val() *365 * EF;
+		var fruit = $("#fruit").val() *365 * EF;
+		var oils = $("#oils").val() *365 * EF;
+		var snacks = $("#snacks").val() *365 * EF;
+		var drinks = $("#drinks").val() *365 * EF;
+		
+		/*PRODUCTS*/
+		/*Electrical : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Household : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Clothes : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Medical : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Recreational : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Other : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Read more at http://shrinkthatfootprint.com/calculate-your-carbon-footprint#5KmvJD6gcd0vA8uJ.99*/
+		
+		var electrical = $("#electrical").val() *12* EF;
+		var household  = $("#household").val() *12* EF;
+		var clothes = $("#clothes").val() *12* EF;
+		var medical = $("#medical").val() *12* EF;
+		var recreational = $("#recreational").val() *12 * EF;
+		var other = $("#other").val() *12 * EF;
+		
+		
+		/*SERVICES*/
+		/*Health : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Finance: spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Recreation: spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Education : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Vehicle: spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Communications : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Other : spend (Ft/hónap) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
+		Read more at http://shrinkthatfootprint.com/calculate-your-carbon-footprint#5KmvJD6gcd0vA8uJ.99*/
+		
+		var health = $("#health").val() *12* EF;
+		var finance  = $("#finance").val() *12* EF;
+		var recreationService = $("#recreation_service").val() *12* EF;
+		var education = $("#education").val() *12* EF;
+		var vehicleService = $("#vehicle_service").val() *12 * EF;
+		var communication = $("#communication").val() *12 * EF;
+		var otherService = $("#other_service").val() *12 * EF;
+	
+	
+		var inputArray = [electricity,naturalGas,fuelOil,lpg,wast,water,bus,metro,taxi,rail,flying,redMeat,whiteMeat,dairy,cereals,vegetables,fruit,oils,snacks,drinks,
+		electrical,household,clothes,medical,recreational,other,health,finance,recreationService,education,vehicleService,communication,otherService];
+		
+		
+		var totalNumber = 0;
+		
+		var finalresult = Number(electricity) + Number(vehicle);
+		
+		for(i=0;i<inputArray.length;i++){
+		
+			totalNumber += Number(inputArray[i]);
+		
+		}
+		
+		
+		
+		console.log(totalNumber);
+
+       $("#result").val(totalNumber + " kgCO2 / év");
+	   
+	   $("#resultToTrees").val(Number((totalNumber/22).toPrecision(2)) + " darab fával");
+    });
+});
+	
+</script>
+
+<style>
+.navbar-default .navbar-header .navbar-toggle{
+	display: none;
+}
+
+.ui-loader-default{
+	display: none !important;
+}
+
+.form-control{
+	margin-bottom: 10px;
+}
+header .header-content .header-content-inner h1{
+	font-size: 50px;
+	text-shadow: 2px 2px 10px #747070 !important;
+}
+
+section.download h2{
+	text-shadow: 2px 2px 10px #747070 !important;
+}
+
+.headerButton{
+	text-shadow: 2px 2px 10px #747070 !important;
+}
+
+.howitworks{
+	position: relative;
+	width: 100%;
+	overflow-y: hidden;
+	background-size: 100% 100%;
+	background-image: url('img/oneStepBack-howitworks.jpg');
+	box-shadow: 0px 2px 15px #3487b5;
+}
+
+.calculator{
+	position: relative;
+	width: 100%;
+	background-size: 100% 100%;
+	background-image: url('img/onestepback-calculation.jpg');
+	box-shadow: 0px 2px 15px #3487b5;
+}
+
+
+#input button, input, optgroup, select, textarea{
+	margin: 0;
+	font: inherit;
+	background-color: transparent;
+	border: 0px;
+	color: #fff;
+	font-size: 35px;
+
+}
+
+.calculatorWrapper{
+    background-color: rgba(20,20,20, 0.50);
+    border-radius: 10px;
+    box-shadow: 5px 2px 5px rgba(218, 255, 218, 0.7);
+	padding: 10px;
+}
+
+.smallWorks{
+	background-color: rgba(20,20,20, 0.50);
+    border-radius: 10px;
+    box-shadow: 5px 2px 5px rgba(218, 255, 218, 0.7);
+	padding: 10px;
+}
+
+</style>
 
 </head>
 
     <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  
+
 
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
 
@@ -66,11 +267,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#download">Subscribe</a>
+                        <a class="page-scroll" href="http://eepurl.com/cFJoer" target="_blank">Feliratkozás</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#features">About us</a>
+<!--                     <li>
+                        <a class="page-scroll" href="#download">Hogyan működik</a>
                     </li>
+					<li>
+                        <a class="page-scroll" href="calculator">Kalkulátor</a>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -82,8 +286,8 @@
                 <div class="col-sm-9">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1>One Step Back is an innovative application to track your carbon-footprint</h1>
-                            <a class="btn btn-outline btn-xl page-scroll" href="http://eepurl.com/cFJoer" target="_blank">Subscribe to know more!</a>
+                            <h1>Kövesd nyomon karbonlábnyomod a One Step Back segítségével!</h1>
+                            <a class="btn btn-outline btn-xl page-scroll headerButton" href="http://eepurl.com/cFJoer" target="_blank">Iratkozz fel, és tudj meg többet!</a>
                         </div>
                     </div>
                 </div>
@@ -93,20 +297,254 @@
             </div>
         </div>
     </header>
+	
+	<hr>
 
-    <section id="download" class="download bg-primary text-center">
+    <section id="download" class="download bg-primary text-center howitworks">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2 class="section-heading">Discover what is it about!</h2>
-                    <p>Our app is in production right now, subscribe and stay tuned!</p>
+            <div class="row" >
+                <div class="col-md-8 col-md-offset-2 smallWorks" >
+                    <h2 class="section-heading">Ismerd meg hogyan működik!</h2>
+                    		<div class="col-md-12" style="align-content: center !important;">
+								
+								<div class="col-sm-4 ">
+									
+									<h3>Gyors számolás</h3>
+									<p>Statisztikai alapokon, lakhelyed, és otthonod ismeretében</p>
+								</div>
+								
+								
+								<div class="col-sm-4">
+									
+									<h3>Részletes számítás</h3>
+									<p>Részletes, pontos, gyors, válaszd ezt, ha mindenre kíváncsi vagy!</p>
+								</div>
+								
+								
+								<div class="col-sm-4">
+									
+									<h3>Cselekedj</h3>
+									<p>Nézd meg, milyen módon javíthatod, vagy akár tűntetheted el karbon-lábnyomod</p>
+								</div>
+							</div>
                     <div class="badges">
-                        <a class="btn btn-outline btn-xl page-scroll" href="http://eepurl.com/cFJoer" target="_blank">Subscribe to know more!</a>
+                        <a class="btn btn-outline btn-xl page-scroll" href="http://eepurl.com/cFJoer" target="_blank">Iratkozz fel!</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+	
+	<hr>
+	
+	<section id="calculator" class="download bg-primary text-center calculator">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 calculatorWrapper">
+					<h2>Kalkulátor</h2>
+					
+						<div class="col-sm-7">
+						  <ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#home">Otthon</a></li>
+							<li><a data-toggle="tab" href="#travel">Utazás</a></li>
+							<li><a data-toggle="tab" href="#food">Étkezés</a></li>
+							<li><a data-toggle="tab" href="#products">Termékek</a></li>
+							<li><a data-toggle="tab" href="#services">Szolgáltatás</a></li>
+						  </ul>
+
+					  <div class="tab-content">
+						<div id="home" class="tab-pane fade in active">
+
+						  <div class="form-group">
+							<label class="control-label col-sm-4" for="electricity">Elektromosság:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="electricity" placeholder="pl. 3400 kWh/év">
+							</div>
+							
+							<label class="control-label col-sm-4" for="naturalGas">Gázhasználat:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="naturalGas" placeholder="pl. 300 köbméter/év">
+							</div>
+							
+							<label class="control-label col-sm-4" for="fuelOil">Fűtőolaj</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="fuelOil" placeholder="pl. 140 liter/év">
+							</div>
+							
+							<label class="control-label col-sm-4" for="lpg">Autógáz:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="lpg" placeholder="pl. 45 liter/év">
+							</div>
+							
+							<label class="control-label col-sm-4" for="wast">Szemét:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="wast" placeholder="pl. 15 kg/hét">
+							</div>
+							
+							<label class="control-label col-sm-4" for="water">Vízhasználat:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="water" placeholder="pl. 5 liter/nap">
+							</div>
+						  </div>
+						 
+						  
+						</div>
+						<div id="travel" class="tab-pane fade">
+						  <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+						  <div class="form-group">
+							<label class="control-label col-sm-4" for="vehicle">Autó:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="vehicle" placeholder="pl. 340 km/év">
+							</div>
+							<label class="control-label col-sm-4" for="bus">Busz:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="bus" placeholder="pl. 110 km/év">
+							</div>
+							<label class="control-label col-sm-4" for="metro">Metró:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="metro" placeholder="pl. 65 km/év">
+							</div>
+							<label class="control-label col-sm-4" for="taxi">Taxi:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="taxi" placeholder="pl. 40 km/év">
+							</div>
+							<label class="control-label col-sm-4" for="rail">Vasút:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="rail" placeholder="pl. 340 km/év">
+							</div>
+							<label class="control-label col-sm-4" for="flying">Repülő:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="flying" placeholder="pl. 1200 km/év">
+							</div>
+
+						  </div>
+						</div>
+						<div id="food" class="tab-pane fade">
+						  <!-- <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p> -->
+									  <div class="form-group">
+							<label class="control-label col-sm-4" for="redMeat">Vöröshús:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="redMeat" placeholder="pl. 1200 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="whiteMeat">Fehérhús:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="whiteMeat" placeholder="pl. 1000 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="dairy">Tejtermék:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="dairy" placeholder="pl. 300 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="cereals">Gabonafélék:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="cereals" placeholder="pl. 120 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="vegetables">Zöldség:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="vegetables" placeholder="pl. 230 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="fruit">Gyümölcs:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="fruit" placeholder="pl. 130 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="oils">Olajok:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="oils" placeholder="pl. 40 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="snacks">Desszertek:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="snacks" placeholder="pl. 430 kCal/nap">
+							</div>
+							<label class="control-label col-sm-4" for="drinks">Üdítők:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="drinks" placeholder="pl. 200 kCal/nap">
+							</div>
+						  </div>
+						</div>
+						<div id="products" class="tab-pane fade">
+						 <!-- <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> -->
+						 <div class="form-group">
+							<label class="control-label col-sm-4" for="electrical">Elektromos:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="electrical" placeholder="pl. 30 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="household">Háztartási:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="household" placeholder="pl. 100 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="clothes">Ruházat:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="clothes" placeholder="pl. 50 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="medical">Orvosi:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="medical" placeholder="pl. 20 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="recreational">Rekreációs:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="recreational" placeholder="pl. 15 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="other">Egyéb:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="other" placeholder="pl. 8 Ft/hónap">
+							</div>
+						  </div>
+						</div>
+						<div id="services" class="tab-pane fade">
+						  <!-- <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> -->
+						  <div class="form-group">
+							<label class="control-label col-sm-4" for="health">Egészség:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="health" placeholder="pl. 3000 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="finance">Befektetés:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="finance" placeholder="pl. 7500 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="recreation_service">Rekreáció:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="recreation_service" placeholder="pl. 3500 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="education">Oktatás:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="education" placeholder="pl. 2000 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="vehicle_service">Jármű:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="vehicle_service" placeholder="pl. 6500 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="communication">Kommunikáció:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="communication" placeholder="pl. 4500 Ft/hónap">
+							</div>
+							<label class="control-label col-sm-4" for="other_service">Egyéb:</label>
+							<div class="col-sm-6">
+							  <input type="number" class="form-control" id="other_service" placeholder="pl. 8000 Ft/hónap">
+							</div>
+						  </div>
+						</div>
+					  </div>
+					   <button class="btn btn-success" id="home" type="button" role="detailCalculator">Lássuk az eredményt!</button>
+					</div>
+					
+					<div class="col-sm-5">
+						<!-- <h3>Check your result!</h3> -->
+						
+						<h3>Karbonlábnyomod:</h3>
+						<input id="result"></input>
+						<br>
+						<h4>Ami egyenlő:</h4>
+						<input id="resultToTrees"></input>
+						<br>
+			<!-- 			<h2>This is equals with</h2>
+						<input></input>
+						<h2>of trees</h2> -->
+						
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
     <footer>
         <div class="container">
             <p>&copy; 2017 One Step Back. All Rights Reserved.</p>
@@ -117,7 +555,8 @@
 
 
 
-
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </body>
 
 </html>
