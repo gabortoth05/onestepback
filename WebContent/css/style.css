@@ -1,0 +1,32 @@
+.sideNav .sapUiBlockCellContent{
+	padding: 0px !important;
+	width: auto;
+}
+
+.sapMGT.TwoByOne{
+	width:100%;
+}
+
+.sapMTileCnt.sapMFrameTypeAuto{
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.sapMFC{
+	width: 100%;
+}
+
+.sapMFCValue{
+	width: 100%;
+}
+
+.sapMLabel{
+	line-height: 2rem;
+}
+.sapMFCValue{
+	max-width: 55.5rem;
+}
+
+html.sap-desktop .sapMGT:hover, html.sap-phone .sapMGT:active, html.sap-tablet .sapMGT:active{
+	box-shadow: 0 0 0.125rem 0 rgba(0,0,0,0.3);
+}

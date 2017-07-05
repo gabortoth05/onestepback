@@ -1,0 +1,49 @@
+<c:FragmentDefinition controllerName="com.olit.cookbook.view.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m"  xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Háztartás" frameType="OneByOne"
+		press="press">
+		<tileContent>
+			<TileContent unit="" footer="kgCO2/év">
+				<content>
+					<NumericContent value="{quickModel>/housing}" scale="" icon="sap-icon://photo-voltaic" />
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	
+		<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Utazás" frameType="OneByOne"
+		press="press">
+		<tileContent>
+			<TileContent unit="" footer="kgCO2/év">
+				<content>
+					<NumericContent value="{quickModel>/travel}" icon="sap-icon://travel-itinerary"/>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	
+		<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Étkezés" frameType="OneByOne"
+		press="press">
+		<tileContent>
+			<TileContent unit="" footer="kgCO2/év">
+				<content>
+					<NumericContent value="{quickModel>/food}" icon="sap-icon://meal"/>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+	
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Egyéb" frameType="OneByOne"
+		press="press">
+		<tileContent>
+			<TileContent unit="" footer="kgCO2/év">
+				<content>
+					<NumericContent value="{quickModel>/other}" icon="sap-icon://create-leave-request"/>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+
+</c:FragmentDefinition>

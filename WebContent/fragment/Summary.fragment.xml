@@ -1,0 +1,20 @@
+<c:FragmentDefinition controllerName="com.olit.cookbook.view.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m"  xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+
+
+	<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Összegzés"
+		frameType="TwoByOne" >
+		<tileContent>
+			<TileContent>
+				<content>
+					<FeedContent id="totalSum" contentText=""
+						subheader="" value="" truncateValueTo="90">
+					</FeedContent>
+				</content>
+			</TileContent>
+		</tileContent>
+	</GenericTile>
+
+
+</c:FragmentDefinition>

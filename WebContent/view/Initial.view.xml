@@ -1,0 +1,30 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.olit.cookbook.view.Initial" xmlns:tnt="sap.tnt" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+	
+	    <tnt:SideNavigation id="sideNavigation">
+        <tnt:item>
+            <tnt:NavigationList>
+                <tnt:NavigationListItem
+                        text="Item 1"
+                        icon="sap-icon://employee">
+                </tnt:NavigationListItem>
+                <tnt:NavigationListItem
+                        text="Item 2"
+                        icon="sap-icon://building">
+                </tnt:NavigationListItem>
+            </tnt:NavigationList>
+        </tnt:item>
+        <tnt:fixedItem>
+            <tnt:NavigationList>
+                <tnt:NavigationListItem text="Item 1" icon="sap-icon://employee"></tnt:NavigationListItem>
+                <tnt:NavigationListItem text="Item 2" icon="sap-icon://building"></tnt:NavigationListItem>
+                <tnt:NavigationListItem text="Item 3" icon="sap-icon://card"></tnt:NavigationListItem>
+            </tnt:NavigationList>
+        </tnt:fixedItem>
+    </tnt:SideNavigation>
+	
+		</content>
+	</Page>
+</core:View>

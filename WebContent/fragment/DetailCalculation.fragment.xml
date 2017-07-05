@@ -1,0 +1,132 @@
+<c:FragmentDefinition controllerName="com.olit.cookbook.view.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:m="sap.m"  xmlns="sap.m"  xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout.form">
+
+			
+			<Wizard id="detailWizard" complete="onCompleteWizard">
+				<WizardStep id="DetailProductTypeStep" title="Háztartás" validated="true">
+					<l:SimpleForm maxContainerCols="2" id="detailhousing"
+					layout="ResponsiveGridLayout"
+					title=""
+					labelSpanL="6"
+					labelSpanM="6"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+							<c:Title text="Háztartás" />
+							<Label text="Mennyi áramot fogyasztasz évente?"  />
+							<Input value="" placeholder="3000kW" />
+							
+							<Label text="Mennyi gázt használsz évente?"  />
+							<Input value="" placeholder="" />
+							
+							<Label text="Mennyi gázolajat használsz évente?"  />
+							<Input value="" placeholder="" />
+							
+							<Label text="Évente mennyi vizet használsz?"  />
+							<Input value="" placeholder="" />
+							
+							<c:Title text="" />
+					</l:SimpleForm>
+				</WizardStep>
+					<WizardStep id="DetailProductTypeStep2" title="Közlekedés" validated="true">
+					<l:SimpleForm maxContainerCols="2" id="detailtravell"
+					layout="ResponsiveGridLayout"
+					title=""
+					labelSpanL="6"
+					labelSpanM="6"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+						<c:Title text="Közlekedés"/>
+						
+						<Label text="Mennyit utazol busszal havonta?"  />
+						<Input value="" placeholder="pl 20.000Ft" />
+						
+						<Label text="Havonta mennyit utazol metróval?"  />
+						<Input value="" placeholder="pl 200km" />
+						
+						<Label text="Havonta mennyit utazol taxival?"  />
+						<Input value="" placeholder="400km" />
+						
+						<Label text="Havonta mennyit utazol vonattal?"  />
+						<Input value="" placeholder="400km" />
+						
+						<Label text="Havonta mennyit utazol repülővel?"  />
+						<Input value="" placeholder="400km" />
+						
+						<c:Title text="" />
+					</l:SimpleForm>
+				</WizardStep>
+					<WizardStep id="DetailProductTypeStep3" title="Étkezés" validated="true">
+					<l:SimpleForm maxContainerCols="2" id="detailfood"
+					layout="ResponsiveGridLayout"
+					title=""
+					labelSpanL="6"
+					labelSpanM="6"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+						<c:Title text="Étkezés" />
+						<Label text="Mennyi vöröshúst fogyasztasz havonta?"  />
+						<Input value="" placeholder="pl 10.000Ft" />
+						
+						<Label text="Mennyi fehérhúst fogyasztasz havonta?"  />
+						<Input value="" placeholder="pl 10.000Ft" />
+						
+						<Label text="Havonta mennyi tejterméket fogyasztasz?"  />
+						<Input value="" placeholder="pl 15.000Ft" />
+						
+						<Label text="Mennyi gabonafélét fogyasztasz havonta?"  />
+						<Input value="" placeholder="pl 15.000Ft" />
+						
+						<Label text="Mennyi zöldséget fogyasztasz havonta?"  />
+						<Input value="" placeholder="pl 15.000Ft" />
+						
+						<Label text="Havonta mennyi gyümölcsöt fogyasztasz?"  />
+						<Input value="" placeholder="pl 17.500Ft" />
+						
+						<Label text="Havonta mennyi édességet fogyasztasz?"  />
+						<Input value="" placeholder="pl 17.500Ft" />
+						
+						<Label text="Mennyit költessz havonta üdítőkre?"  />
+						<Input value="" placeholder="pl 17.500Ft" />
+						
+						<c:Title text="" />
+					</l:SimpleForm>
+				</WizardStep>
+					<WizardStep id="DetailProductTypeStep4" title="Szolgáltatások" validated="true">
+					<l:SimpleForm maxContainerCols="2" id="detailservices"
+					layout="ResponsiveGridLayout"
+					title=""
+					labelSpanL="6"
+					labelSpanM="6"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+						<c:Title text="Szolgáltatások" />
+						<Label text="Mennyit költessz havonta sportra?"  />
+						<Input value="" placeholder="pl 10.000Ft" />
+						
+						<Label text="Mennyit költessz havonta kommunikációra?"  />
+						<Input value="" placeholder="pl 15.000Ft" />
+						
+						<Label text="Mennyit költessz havonta ruhára?"  />
+						<Input value="" placeholder="pl 17.500Ft" />
+						
+						<Label text="Mennyit költessz havonta oktatásra?"  />
+						<Input value="" placeholder="pl 17.500Ft" />
+						
+						<Label text="Mennyit költessz havonta rekreációra?"  />
+						<Input value="" placeholder="pl 17.500Ft" />
+						
+						<c:Title text="" />
+					</l:SimpleForm>
+				</WizardStep>
+			</Wizard>
+
+</c:FragmentDefinition>

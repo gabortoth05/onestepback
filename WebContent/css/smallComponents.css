@@ -1,0 +1,56 @@
+.sapMComboBox{
+    height: 2.0rem;
+}
+
+.sapMComboBoxTextFieldArrow{
+    line-height: 1.85rem;
+}
+
+.sapMInputBaseInner{
+    height: 2.0rem;
+}
+
+.sapMInputValHelpInner, html[data-sap-ui-browser="ie9"] .sapMInputValHelpInner{
+    line-height: 2rem;
+}
+
+.sapMCbBg{
+    width: 1rem;
+    height: 1rem;
+}
+
+.sapMCb {
+    box-sizing: border-box;
+    height: 2.0rem;
+    line-height: 0.85rem;
+    vertical-align: top;
+    text-align: left;
+    padding: 0.4rem 0 0 2rem;
+}
+
+.sapMLIB.sapMObjLItem{
+    padding: 0.5rem;
+}
+
+
+.sapMInputValHelpInner, html[data-sap-ui-browser="ie9"] .sapMInputValHelpInner{
+	height: 2.0rem;
+}
+
+.sapMComboBoxTextField{
+	height: 2.0rem;
+}
+
+.sapMSlt{
+	height: 2.0rem;
+}
+
+.sapMMultiInputBorder{
+	height: 2.0rem;
+}
+
+.sapMInputBaseState .sapMInputValHelp > .sapMInputValHelpInner{
+	height: 1.8rem;
+	width: 2.25rem;
+	line-height: 1.8rem;
+}

@@ -1,0 +1,20 @@
+<c:FragmentDefinition controllerName="com.olit.cookbook.view.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m"  xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+
+
+	<l:BlockLayout>
+		<l:BlockLayoutRow>
+			<l:BlockLayoutCell>
+			
+			</l:BlockLayoutCell>
+			<l:BlockLayoutCell>
+			
+			</l:BlockLayoutCell>
+			<l:BlockLayoutCell>
+			
+			</l:BlockLayoutCell>
+		</l:BlockLayoutRow>
+	</l:BlockLayout>
+
+</c:FragmentDefinition>
