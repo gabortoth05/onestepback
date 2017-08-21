@@ -43,14 +43,23 @@ sap.ui.controller("com.olit.cookbook.view.Master", {
 		var EF = 1; //emission Factor
 		console.log("this is the local model", core.byId("App").getModel("globalModel").getData());
 		
-
+		var electricity = 0;
+		var water = 0;
+		var gas = 0;
 		
+		quickModel.electricity == 0 ? electricity = quickModel.last_electricity/17.07 : electricity = quickModel.electricity/15.07;
+		quickModel.water == 0 ? electricity = quickModel.last_water/210 : electricity = quickModel.water/218;
+		quickModel.gas == 0 ? electricity = quickModel.last_gas : electricity = quickModel.gas;
+		
+		console.log(electricity);
 		var quickCalculation = {
-				housing : (quickModel.electricity/15.07)*EF*12 + (quickModel.water/218 * 12 * EF) + (quickModel.gas * EF),
+				housing : (electricity)*EF*12 + (water * 12 * EF) + (gas * EF),
 				travel : (quickModel.fuel) + (quickModel.train) + (quickModel.bus),
 				food : (quickModel.meat * 365) + (quickModel.vegetable * 365) + (quickModel.fruite * 365),
 				other : (quickModel.sport * 12) + (quickModel.phone *12) + (quickModel.clothes * 12)
 		}
+		console.log(quickCalculation)
+		
 		var total = quickCalculation.housing + quickCalculation.travel + quickCalculation.food + quickCalculation.other;
 		var quickModel = new sap.ui.model.json.JSONModel();
 		quickModel.setData(quickCalculation);
@@ -66,8 +75,11 @@ sap.ui.controller("com.olit.cookbook.view.Master", {
 		
 		var modelData = {
 				electricity:"",
+				last_electricity:"",
 				water:"",
+				last_water:"",
 				gas:"",
+				last_gas:"",
 				fuel:"",
 				train:"",
 				bus:"",

@@ -1,6 +1,6 @@
 <c:FragmentDefinition controllerName="com.olit.cookbook.view.Master"
 	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:m="sap.m"  xmlns="sap.m"  xmlns:u="sap.ui.unified"
-	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout.form">
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
 
 			
 			<Wizard id="CreateProductWizard" complete="onCompleteWizard">
@@ -8,21 +8,36 @@
 					<l:SimpleForm maxContainerCols="2" id="housing"
 					layout="ResponsiveGridLayout"
 					title=""
-					labelSpanL="6"
-					labelSpanM="6"
+					labelSpanL="5"
+					labelSpanM="5"
 					emptySpanL="0"
 					emptySpanM="0"
-					columnsL="2"
-					columnsM="2">
+					columnsL="1"
+					columnsM="1">
 							<c:Title text="Háztartás" />
-							<Label text="Mennyi átlagosan a villanyszámlád?"  />
-							<Input value="{globalModel>/electricity}" placeholder="pl 12.000Ft havonta" />
+							<Label text="Mennyi átlagosan, vagy előző havi villanyszámlád?"  />
+							<Input value="{globalModel>/electricity}" placeholder="pl 12.000Ft átlagosan" />
+							<Input value="{globalModel>/last_electricity}" placeholder="pl 4.500Ft">
+							<layoutData>
+								<layout:GridData span="L4 M4 S4" />
+							</layoutData>
+							</Input>
 							
-							<Label text="Mennyi átlagosan a vízszámlád?"  />
-							<Input value="{globalModel>/water}" placeholder="pl 6.000Ft havonta" />
+							<Label text="Mennyi átlagosan, vagy előző havi vízszámlád?"  />
+							<Input value="{globalModel>/water}" placeholder="pl 6.000Ft átlagosan" />
+							<Input value="{globalModel>/last_water}" placeholder="pl 2.500Ft">
+							<layoutData>
+								<layout:GridData span="L4 M4 S4" />
+							</layoutData>
+							</Input>
 							
-							<Label text="Mennyi átlagosan a gázszámlád?"  />
-							<Input value="{globalModel>/gas}" placeholder="pl 20.000Ft havonta" />
+							<Label text="Mennyi átlagosan, vagy előző havi gázszámlád?"  />
+							<Input value="{globalModel>/gas}" placeholder="pl 20.000Ft átlagosan" />
+							<Input value="{globalModel>/last_gas}" placeholder="pl 10.500Ft">
+							<layoutData>
+								<layout:GridData span="L4 M4 S4" />
+							</layoutData>
+							</Input>
 							
 							<c:Title text="" />
 					</l:SimpleForm>
