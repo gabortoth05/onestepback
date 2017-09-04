@@ -66,12 +66,12 @@ $(document).ready(function(){
 		
 		var EF  = 1;
 		
-		var electricity = $("#electricity").val() * EF;
+		var electricity = $("#electricity").val()/17.07 *12* EF;
 		var naturalGas  = $("#naturalGas").val() * EF;
 		var fuelOil = $("#fuelOil").val() * EF;
 		var lpg = $("#lpg").val() * EF;
-		var wast = $("#wast").val() * 52 * EF;
-		var water = $("#water").val() *365* EF;
+		var wast = $("#wast").val() * 12 * EF;
+		var water = $("#water").val()/210 *12* EF;
 		
 		
 		/*TRAVEL*/
@@ -356,14 +356,14 @@ section.download h2{
 						<div id="home" class="tab-pane fade in active">
 
 						  <div class="form-group">
-							<label class="control-label col-sm-4" for="electricity">Elektromosság:</label>
+							<label class="control-label col-sm-4" for="electricity">Villanyszámla:</label>
 							<div class="col-sm-6">
-							  <input type="number" class="form-control" id="electricity" placeholder="pl. 3400 kWh/év">
+							  <input type="number" class="form-control" id="electricity" placeholder="pl. 6400Ft/hónap">
 							</div>
 							
-							<label class="control-label col-sm-4" for="naturalGas">Gázhasználat:</label>
+							<label class="control-label col-sm-4" for="naturalGas">Gázszámla:</label>
 							<div class="col-sm-6">
-							  <input type="number" class="form-control" id="naturalGas" placeholder="pl. 300 köbméter/év">
+							  <input type="number" class="form-control" id="naturalGas" placeholder="pl. 8900Ft/hónap">
 							</div>
 							
 							<label class="control-label col-sm-4" for="fuelOil">Fűtőolaj</label>
@@ -376,14 +376,14 @@ section.download h2{
 							  <input type="number" class="form-control" id="lpg" placeholder="pl. 45 liter/év">
 							</div>
 							
-							<label class="control-label col-sm-4" for="wast">Szemét:</label>
+							<label class="control-label col-sm-4" for="wast">Szemétdíj:</label>
 							<div class="col-sm-6">
-							  <input type="number" class="form-control" id="wast" placeholder="pl. 15 kg/hét">
+							  <input type="number" class="form-control" id="wast" placeholder="pl. 3500Ft/hónap">
 							</div>
 							
-							<label class="control-label col-sm-4" for="water">Vízhasználat:</label>
+							<label class="control-label col-sm-4" for="water">Vízszámla:</label>
 							<div class="col-sm-6">
-							  <input type="number" class="form-control" id="water" placeholder="pl. 5 liter/nap">
+							  <input type="number" class="form-control" id="water" placeholder="pl. 10000Ft/hónap">
 							</div>
 						  </div>
 						 
