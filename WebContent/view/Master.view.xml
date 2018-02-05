@@ -1,72 +1,157 @@
-<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="com.olit.cookbook.view.Master" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page title="One step back">
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:custom="oneStepBack.utils"
+		controllerName="oneStepBack.view.Master" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="One Step Back">
+		<headerContent>
+			<Button icon="sap-icon://action" text="Iratkozz fel!" tooltip="feliratkozás" press="onSubscribe"/>
+		</headerContent>
 		<content>
-<!-- 			<l:BlockLayout> -->
+		
+			<custom:Jumbotron BackgroundColor="grey" Height="100vh" ButtonType="success" ButtonText="Tudj meg többet"/>
+		
+			<l:BlockLayout>
+				<l:BlockLayoutRow class="aboutSection" >
+					<l:BlockLayoutCell>
+						<custom:aboutSection />
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
 <!-- 				<l:BlockLayoutRow> -->
-<!-- 					<l:BlockLayoutCell width="1" class="sideNav" > -->
-<!-- 							<core:Fragment fragmentName="com.olit.cookbook.fragment.SideNav" type="XML" /> -->
-<!-- 					</l:BlockLayoutCell> -->
-<!-- 					<l:BlockLayoutCell width="11"> -->
-<!-- 							<Panel> -->
-<!-- 								<content> -->
-<!-- 									<core:Fragment fragmentName="com.olit.cookbook.fragment.TileContainer" type="XML" /> -->
-					
-<!-- 								</content> -->
-<!-- 							</Panel> -->
-<!-- 							<Panel> -->
-<!-- 								<content> -->
-<!-- 									<core:Fragment fragmentName="com.olit.cookbook.fragment.Summary" type="XML" /> -->
-								
-<!-- 								</content> -->
-<!-- 							</Panel> -->
-<!-- 							<Panel> -->
-<!-- 								<content> -->
-<!-- 									<core:Fragment fragmentName="com.olit.cookbook.fragment.GraphContainer" type="XML" /> -->
-								
-<!-- 								</content> -->
-<!-- 							</Panel> -->
-
-				
+<!-- 					<l:BlockLayoutCell> -->
+<!-- 						<custom:equalContainer /> -->
 <!-- 					</l:BlockLayoutCell> -->
 <!-- 				</l:BlockLayoutRow> -->
-<!-- 			</l:BlockLayout> -->
-
-		<IconTabBar id="iconTabBar">
-			<items>
-				<IconTabFilter
-					text="Gyors számítás" key="quickCalc">
-					<core:Fragment fragmentName="com.olit.cookbook.fragment.QuickCalculation" type="XML" />
+			</l:BlockLayout>
+			
+			
+				<l:BlockLayout>
+					<l:BlockLayoutRow class="calculator">
+						<l:BlockLayoutCell width="1">
+						<IconTabBar
+							id="idIconTabBarFiori2"
+							upperCase="true"
+							expanded="{device>/isNoPhone}"
+							class="sapUiResponsiveContentPadding">
+							<items>
+								<IconTabFilter
+									text="Otthon">
+									<Input placeholder="Mennyi átlagosan a villanyszámlád?" value="{inputModel>/electricity}" />
+									<Input placeholder="Mennyi átlagosan a gázszámlád" value="{inputModel>/gas}"/>
+									<Input placeholder="Évente hány liter fűtőolajat használsz?" value="{inputModel>/heatOil}"/>
+									<Input placeholder="Évente hány liter autógázt használsz?" value="{inputModel>/carGas}"/>
+									<Input placeholder="Mennyi a havi szemétdíjad?" value="{inputModel>/trash}"/>
+									<Input placeholder="Átlagosan mennyi a vízszámlád?" value="{inputModel>/water}"/>
+								</IconTabFilter>
+								<IconTabFilter
+									text="Utazás">
+									<Input placeholder="Évente hány kilométert autózol?" value="{inputModel>/byCar}"/>
+									<Input placeholder="Évente hány kilométert buszozol?" value="{inputModel>/byBus}"/>
+									<Input placeholder="Évente hány kilométert metrozol?" value="{inputModel>/byMetro}"/>
+									<Input placeholder="Évente hány kilométert taxizol?" value="{inputModel>/byTaxi}"/>
+									<Input placeholder="Évente hány kilométert vonatozol?" value="{inputModel>/byTrain}"/>
+									<Input placeholder="Évente hányszor repülsz?" value="{inputModel>/byPlane}"/>
+								</IconTabFilter>
+								<IconTabFilter
+									text="Étkezés">
+									<Input placeholder="Naponta hány gramm húst eszel?" value="{inputModel>/foodM}"/>
+									<Input placeholder="Hány liter tejet iszol naponta?" value="{inputModel>/foodD}"/>
+									<HBox>
+										<Switch state="{inputModel>/dailyWeat}" customTextOn="Igen" customTextOff="Nem" />
+										<Label class="switch sapUiMediumMarginBegin" text="napi szinten eszel gabonaféléket?" />
+									</HBox>
+									<HBox>
+										<Switch state="{inputModel>/dailyFruit}" customTextOn="Igen" customTextOff="Nem" />
+										<Label class="switch sapUiMediumMarginBegin" text="Napi szinten eszel gyümölcsöt?" />
+									</HBox>
+									<HBox>
+										<Switch state="{inputModel>/dailyCake}" customTextOn="Igen" customTextOff="Nem" />
+										<Label class="switch sapUiMediumMarginBegin" text="Napi szinten eszel süteményt?" />
+									</HBox>
+									<HBox>
+										<Switch state="{inputModel>/dailySoda}" customTextOn="Igen" customTextOff="Nem" />
+										<Label class="switch sapUiMediumMarginBegin" text="Napi szinten iszol üdítőket?" />
+									</HBox>
+								</IconTabFilter>
 							
-				</IconTabFilter>
-				<IconTabFilter
-					text="Részletes számítás" key="detailCalc" enabled="false">
-					<core:Fragment fragmentName="com.olit.cookbook.fragment.DetailCalculation" type="XML" />
-				</IconTabFilter>
-				<IconTabFilter
-					text="Összegzés" key="review">
-					<l:BlockLayout>
-						<l:BlockLayoutRow>
-							<l:BlockLayoutCell width="12">
-									<Panel>
-										<content>
-											<core:Fragment fragmentName="com.olit.cookbook.fragment.TileContainer" type="XML" />
+							</items>
+						</IconTabBar>	
+						<Button text="Lássuk az eredményt" class="alignRight" press="onCalculation"/>				
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell width="2" class="customBlockCell" >
 							
-										</content>
-									</Panel>
-									<Panel>
-										<content>
-											<core:Fragment fragmentName="com.olit.cookbook.fragment.Summary" type="XML" />
+							<NavContainer id="navContainer" class="navcontainer" height="600px">
+								<Page id="resultPage">
+									<content>
+									<Title text=" " class=""/>
 										
-										</content>
-									</Panel>
-							</l:BlockLayoutCell>
-						</l:BlockLayoutRow>
-					</l:BlockLayout>
-				</IconTabFilter>
-			</items>
-		</IconTabBar>
+										<l:BlockLayout>
+											<l:BlockLayoutRow>
+												<l:BlockLayoutCell class="reducedPadding" >
+													<HBox>
+														<Image
+															src="img/onestepback_footprint.jpeg"
+															densityAware="false"
+															width="200px"
+															class="roundImage" >
+														</Image>
+													<VBox width="100%">
+															<ObjectHeader
+																binding=""
+																title="Karbonlábnyomod"
+																number="{inputModel>/finalResult}"
+																numberUnit="kg CO2/év" >
+															</ObjectHeader>		
+															<ObjectHeader
+																binding=""
+																title="Ami egyenlő"
+																number="{inputModel>/finalResultInTrees}"
+																numberUnit="darab fa éves munkájával" >
+															</ObjectHeader>						
+													</VBox>
+													</HBox>
+												</l:BlockLayoutCell>
+											</l:BlockLayoutRow>
+											<l:BlockLayoutRow>
+												 <l:BlockLayoutCell>
+												 	<Button text="Tudj meg többet" class="alignRight" press="toDetails"/>
+												 </l:BlockLayoutCell>
+				
+											</l:BlockLayoutRow>
+										</l:BlockLayout>
+									</content>
+								</Page>
+								<Page id="knowMore" >
+									<content>
+									
+										<VBox width="">
+<!-- 											<HBox> -->
+<!-- 												<custom:chartHolder style="height: 300px; width: 100%;"/> -->
+<!-- 											</HBox> -->
+											<custom:chartHolder />
+											
+										</VBox>
+											<HBox>
+												<Button text="Vissza" class="alignRight" press="backToCalculation"/>
+											
+											</HBox>
+										
+										
+									</content>
+								</Page>
+							</NavContainer>
+							
+							
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="footer">
+						<l:BlockLayoutCell>
+							<custom:footer /> 
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
 
+				
+			
+			
+			
 		</content>
 	</Page>
 </core:View>

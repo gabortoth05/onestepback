@@ -1,0 +1,88 @@
+{
+    "_version": "1.0.0" ,
+    "start_url": "index.html",
+
+    "sap.app": { 
+        "id": "oneStepBack",
+        "type": "application",
+        "i18n": "i18n/messageBundle.properties",
+        "applicationVersion": { 
+            "version": "1.0.0" 
+        },
+       
+        "title": "One Step Back", 
+        "subTitle": "{{subtitle}}", 
+        "description": "{{description}}", 
+        "tags": {
+            "keywords": ["{{keyWord1}}","{{keyWord2}}"]
+        },
+        "destination": { 
+        },
+       
+        "dataSources": {
+	        "calculationData": {
+				"uri": "models/customers.json",
+				"type": "JSON"
+			}
+     
+	    }
+    },
+
+    "sap.ui":{
+    "bindingSyntax":"complex",
+        "technology": "UI5",
+        "icons": { 
+            "icon": "",
+            "favIcon": "", 
+            "phone": "",
+            "phone@2": "", 
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": { 
+            "desktop": true,
+            "tablet": true, 
+            "phone": false 
+        },
+        "fullWidth": true 
+    },
+
+
+    "sap.ui5": {
+        "resources":{ 
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        },
+        "dependencies": { 
+            "minUI5Version": "1.30.0" , 
+            "libs": { 
+                "sap.m": {
+                    "minVersion": "1.30.0" 
+                }
+            }
+           
+        }, 
+        "models": {
+         	"i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/messageBundle.properties" 
+            },
+            
+            "calculationData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "calculationData"
+			},
+			
+           
+        },
+        "rootView": "oneStepBack.view.Master",
+        "config": {
+            "title" : "One Step Back",
+			"icon" : "sap-icon://task",
+			"serviceurl" : ""
+        },
+    
+        "componentName": "oneStepBack"
+    }
+ }

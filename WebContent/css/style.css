@@ -1,32 +1,123 @@
-.sideNav .sapUiBlockCellContent{
-	padding: 0px !important;
-	width: auto;
+.logo {
+    font-size: 200px;
+}
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
 }
 
-.sapMGT.TwoByOne{
-	width:100%;
+.container{
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
 }
 
-.sapMTileCnt.sapMFrameTypeAuto{
-	min-width: 100%;
-	max-width: 100%;
+h2{
+	color: #fff !important;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 3.5rem;
+	text-shadow: 3px 0px #333;
 }
 
-.sapMFC{
-	width: 100%;
+p{
+	color: #004342 !important; 
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	text-align:justify;
 }
 
-.sapMFCValue{
-	width: 100%;
+.container {
+      padding: 80px 120px;
+	     padding-bottom:0px;
+	   padding-top:10px;
+      /*! padding-bottom: 0px !important; */
+}
+.person {
+      border: 0px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+      box-shadow: 5px 5px 15px #003837;
+}
+  
+.reducedPadding{
+      padding: 0px !important;
 }
 
-.sapMLabel{
-	line-height: 2rem;
-}
-.sapMFCValue{
-	max-width: 55.5rem;
+/*Navigation container style*/
+.navcontainer .sapMIBar.sapMHeader-CTX{
+	background-color: transparent !important;
 }
 
-html.sap-desktop .sapMGT:hover, html.sap-phone .sapMGT:active, html.sap-tablet .sapMGT:active{
-	box-shadow: 0 0 0.125rem 0 rgba(0,0,0,0.3);
+.navcontainer .sapMPageHeader::before{
+    border: 0px !important;
+}
+
+/* Reduce padding in object header section*/
+.sapMOH{
+	padding-top: 0px !important;
+	padding-bottom: 0.5rem !important;
+}
+
+.customBlockCell .sapUiBlockCellContent{
+	padding-left: 0px !important;
+}
+
+.alignRight{
+	float: right !important;
+}
+
+.roundImage{
+	border-radius: 50%;
+}
+
+.jumbotron{
+	background-image: url('../img/oneStepBack_cover.jpeg');
+	background-size: cover;
+	height: 100vh;
+}
+
+.jumbotron h1{
+	padding-top: 15%;
+	font-size: 3.5rem;
+	font-weight: 200;
+	font-family: Catamaran,Helvetica,Arial,sans-serif;
+	letter-spacing: 1px;
+	color: white;
+	text-shadow: 4px 0px #333;
+}
+
+.canvasjs-chart-canvas{
+
+}
+
+.sapUiGlobalBackgroundColor, .sapMGlobalBackgroundColor{
+	background-color: #a4b9ca !important;
+		background-image: linear-gradient(to bottom,#00c0bd 0,#b5c8d7 50%,#e7ffff 100%);
+	
+}
+
+.aboutSection{
+	background-color: transparent;
+	background-size: cover;
+	padding-top: 10%;
+    height: 100vh;
+
+}
+}
+
+.calculator{
+	background-color: #e7ffff;
+	opacity: 0.8 !important;
+	box-shadow: 0px 7px 10px #003837
+}
+
+.switch{
+    line-height: 3rem !important;
+}
+
+.footer{
+	background-color: #d0e5ec !important;
+	
 }

@@ -1,79 +1,40 @@
-jQuery.sap.declare("com.olit.cookbook.master.Component");
+jQuery.sap.declare("oneStepBack.Component");
 jQuery.sap.require("sap.ui.core.UIComponent");
-sap.ui.core.UIComponent
-		.extend(
-				"com.olit.cookbook.Component",
-				{
-					metadata : {
-						name : "OLIT CookBook",
-						version : "1.1.75",
 
-						includes : [ "css/style.css", "css/smallComponents.css" ],
-						library : "com.olit.cookbook.Component",
-						dependencies : {
-							libs : [ "sap.m", "sap.ui.core", "sap.ui.commons" ],
-							components : []
-						},
-						config : {
-							"title" : "",
-							"icon" : "",
+sap.ui.core.UIComponent.extend("oneStepBack.Component", {
 
-						}
-					},
-					createContent : function() {
-						//jQuery.sap.log.setLevel(jQuery.sap.log.Level.ERROR);
+    metadata : {
+        manifest:"json",
+        includes : [ "css/style.css"]   
+	},
+	createContent : function() {
 
-						var master = sap.ui.view({
-							id : "master",
-							viewName : "com.olit.cookbook.view.Master",
-							type : sap.ui.core.mvc.ViewType.XML
-						});
-//						var detail = sap.ui.view({
-//							id : "detail",
-//							viewName : "com.olit.cookbook.view.Detail",
-//							type : sap.ui.core.mvc.ViewType.XML
-//						})
-						var initial = sap.ui.view({
-							id : "initial",
-							viewName : "com.olit.cookbook.view.Initial",
-							type : sap.ui.core.mvc.ViewType.XML
-						});
-						
+		
+		var master = sap.ui.view({
+			id : "master",
+			viewName : "oneStepBack.view.Master",
+			type : sap.ui.core.mvc.ViewType.XML
+		});	
+		
+		var app = new sap.m.App('app', {
+			initialPage : "master"
+		});	
+		
+		app.addPage(master);		
+		
+	    var i18nModel = new sap.ui.model.resource.ResourceModel({
+		      bundleUrl : "i18n/messageBundle.properties"
+	    });
+		app.setModel(i18nModel, "i18n");
+		sap.ui.getCore().setModel(i18nModel, "i18n");
+//		
+//		var customers = new sap.ui.model.json.JSONModel();
+//		customers.loadData(com.alterburo.crm.infovrp.billsearch.Component.getMetadata().getManifestEntry("sap.app").dataSources["init_data_alias"].uri, '', false);
+//		sap.ui.getCore().setModel(customers, "customers");
+//		app.setModel(customers, "customers");
 
 
-						var App = new sap.m.App('App');
-						App.addPage(master);
-						//App.addDetailPage(initial);
-						
-						//App.addPage(detail);
-						
-						
-						
-						// Test data set
-						var testModel = new sap.ui.model.json.JSONModel();
-						testModel.loadData("models/polist.json");
-						sap.ui.getCore().setModel(testModel, "testModel");
-						App.setModel(testModel, "testModel");
-
-						// set the i18n
-						var i18nModel = new sap.ui.model.resource.ResourceModel(
-								{
-									bundleUrl : "i18n/messageBundle.properties",
-									bundleLocale : "en"
-
-								});
-
-						App.setModel(i18nModel, "i18n");
-						sap.ui.getCore().setModel(i18nModel, "i18n");
-
-
-						jQuery.sap.require("sap.m.Shell");
-							var shell = new sap.m.Shell({			           
-								app : [		
-												App  
-								           ]
-							});
-							return shell;
-					}
-
-				});
+		
+		return app;		
+	}
+});

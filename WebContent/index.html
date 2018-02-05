@@ -4,21 +4,26 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js">
-		</script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		
+		<meta name="title" content="One Step Back"> 
+		<meta name="description" content="Follow your carbon footprint"> 		
+		<meta name="keywords" content="carbon footprint"> 
+		<meta name="author" content="Gabor Toth"> 
+
 		<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
+				data-sap-ui-libs="sap.m,sap.ui.commons"
 				data-sap-ui-theme="sap_bluecrystal"
-				data-sap-ui-resourceroots='{"com.olit.cookbook":"./"}'>
+				data-sap-ui-resourceroots='{"oneStepBack":"./"}'>
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
-
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
 		<script>
 		new sap.ui.core.ComponentContainer({
-			name:"com.olit.cookbook",
-		}).placeAt('content');
+			name:"oneStepBack",
+		}).placeAt('content');	
 		</script>
 
 	</head>
