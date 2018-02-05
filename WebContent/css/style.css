@@ -121,3 +121,7 @@ p{
 	background-color: #d0e5ec !important;
 	
 }
+
+.sapMPage > .sapMPageHeader + section, .sapMPage > .sapMPageSubHeader + section, .sapMPage > .sapMPageHeader + .sapUiHiddenPlaceholder + section{
+	top: 0px !important;
+}
